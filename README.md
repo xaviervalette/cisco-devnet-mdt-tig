@@ -1,7 +1,7 @@
 # Cisco DevNet MDT TIG
 
 <p align="center">
-<img width="500" alt="image" src="https://github.com/xaviervalette/cisco-devnet-mdt-tig/assets/28600326/5182eab6-14ec-466b-bade-2c7ebe69fc7e"><p>
+<img width="550" alt="image" src="https://github.com/xaviervalette/cisco-devnet-mdt-tig/assets/28600326/5182eab6-14ec-466b-bade-2c7ebe69fc7e"><p>
  
 ## Get started
  
