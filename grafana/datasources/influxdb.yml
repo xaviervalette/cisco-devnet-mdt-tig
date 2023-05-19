@@ -5,6 +5,7 @@ datasources:
     type: influxdb
     access: proxy
     url: http://10.142.78.4:8086
+    uid: x_9-kjU4k
     jsonData:
       version: Flux
       organization: valettefamily.com
