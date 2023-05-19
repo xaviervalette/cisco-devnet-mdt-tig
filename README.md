@@ -1,2 +1,2 @@
-# cisco-devnet-mdt-tig
+# Cisco DevNet MDT TIG
  
