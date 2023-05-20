@@ -90,10 +90,19 @@ Attaching to influxdb, telegraf, grafana
   
 
   You can log in using the `$USERNAME` and `$PASSWORD` that you define in the `.env` file (`admin:admin` in the example)
+
+ ## What's next ?
+ This project comes with prebuilt dashboards:
+ - [Cisco Meraki](https://github.com/xaviervalette/cisco-devnet-mdt-tig/grafana/dashboards/meraki.json)
+ - Cisco Catalyst 9800
  
+
 ## Going beyond
+ 
+  If you want to securely access to your application (InfluxDB, Grafana) from outside your network, you can deploy a [Duo Network Gateway](https://duo.com/docs/dng) (reverse proxy + SAML IDP) → Check my repository [Cisco Duo Network Gateway Raspberry PI](https://github.com/xaviervalette/cisco-duo-network-gateway-raspberry-pi) for more details.
+ 
  <p align="center">
 <img width="550" alt="image" src="https://github.com/xaviervalette/cisco-devnet-mdt-tig/assets/28600326/6c70093c-d5d3-42a1-813a-a3b736da104b">
  </p>
  
- If you want to securely access to your application (InfluxDB, Grafana) from outside your network, you can deploy a [Duo Network Gateway](https://duo.com/docs/dng) (reverse proxy + SAML IDP) → Check my repository [Cisco Duo Network Gateway Raspberry PI](https://github.com/xaviervalette/cisco-duo-network-gateway-raspberry-pi) for more details.
+
