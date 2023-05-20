@@ -97,14 +97,14 @@ Attaching to influxdb, telegraf, grafana
  To help you at this stage, I've created ready to use dashboards: 
  <details>
    <summary>
-   <a href="https://github.com/xaviervalette/cisco-devnet-mdt-tig/tree/main/grafana/dashboards#cisco-catalyst-9800---client-stats">Cisco Meraki - Global stats</a>
+   <a href="https://github.com/xaviervalette/cisco-devnet-mdt-tig/blob/main/grafana/dashboards/cisco-meraki_global-stats.json">Cisco Meraki - Global stats</a>
   </summary>
   <p align="center"><img width="800" alt="image" src="https://github.com/xaviervalette/cisco-devnet-mdt-tig/assets/28600326/e364c2e6-eafd-4bcf-ae99-d7cd379f9be9"></p>
  </details>
  
   <details>
    <summary>
-   <a href="https://github.com/xaviervalette/cisco-devnet-mdt-tig/tree/main/grafana/dashboards#cisco-catalyst-9800---client-stats">Cisco Catalyst 9800 - Clients stats</a>
+   <a href="https://github.com/xaviervalette/cisco-devnet-mdt-tig/blob/main/grafana/dashboards/cisco-catalyst-9800_clients-stats.json">Cisco Catalyst 9800 - Clients stats</a>
   </summary>
   <p align="center"><img width="800" alt="image" src="https://github.com/xaviervalette/cisco-devnet-mdt-tig/assets/28600326/b58848d8-3846-4174-9b29-33f355c86322"></p>
  </details>
