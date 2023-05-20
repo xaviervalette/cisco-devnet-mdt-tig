@@ -1,4 +1,7 @@
 # Cisco DevNet Model Driven Telemetry with TIG
+[![Influx DB](https://img.shields.io/badge/influxdb-2.7-blue.svg)](https://hub.docker.com/_/influxdb)
+[![Grafana](https://img.shields.io/badge/Grafana-9.4.1-yellow.svg)](https://hub.docker.com/r/grafana/grafana)
+
 
 ## What is it ?
 Telegraf, InfluxDB and Grafana (TIG) setup via Docker to collect Model Driven Telemetry (MDT):
