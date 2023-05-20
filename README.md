@@ -95,4 +95,4 @@ Attaching to influxdb, telegraf, grafana
 <img width="550" alt="image" src="https://github.com/xaviervalette/cisco-devnet-mdt-tig/assets/28600326/6c70093c-d5d3-42a1-813a-a3b736da104b">
  </p>
  
- If you want to access to your application (InfluxDB, Grafana) from outside your network, you can deploy a [Duo Network Gateway](https://duo.com/docs/dng) (reverse proxy + SAML IDP) → Check my repository [Cisco Duo Network Gateway Raspberry PI](https://github.com/xaviervalette/cisco-duo-network-gateway-raspberry-pi) for more details.
+ If you want to securely access to your application (InfluxDB, Grafana) from outside your network, you can deploy a [Duo Network Gateway](https://duo.com/docs/dng) (reverse proxy + SAML IDP) → Check my repository [Cisco Duo Network Gateway Raspberry PI](https://github.com/xaviervalette/cisco-duo-network-gateway-raspberry-pi) for more details.
