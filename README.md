@@ -20,6 +20,7 @@ git clone https://github.com/xaviervalette/cisco-devnet-mdt-tig
 ```diff
 └── cisco-devnet-mdt-tig/
 +   ├── .env
+    ├── docker-compose.yml
     ├── telegraf/
     │    └── ...
     ├── influxdb/
