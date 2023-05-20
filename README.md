@@ -96,8 +96,8 @@ Attaching to influxdb, telegraf, grafana
  You can start creating your own dashboards.
  
  To help you at this stage, I've created ready to use dashboards:
- - [Cisco Meraki - Classic](https://github.com/xaviervalette/cisco-devnet-mdt-tig/tree/main/grafana/dashboards#meraki)
- - Cisco Catalyst 9800 - Classic (coming)
+ - [Cisco Meraki - Global stats](https://github.com/xaviervalette/cisco-devnet-mdt-tig/blob/main/grafana/dashboards/README.md#cisco-meraki---global-stats)
+ - [Cisco Catalyst 9800 - Clients stats](https://github.com/xaviervalette/cisco-devnet-mdt-tig/tree/main/grafana/dashboards#cisco-catalyst-9800---client-stats)
  - Cisco Catalyst 9300 - Sustanability (coming)
 
 ## Going beyond
