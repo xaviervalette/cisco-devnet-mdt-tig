@@ -16,6 +16,7 @@ services:
 
   influxdb:
     image: influxdb
+    container_name: influxdb
     ports:
       - '8086:8086'
     environment:
@@ -27,13 +28,14 @@ services:
       - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=test-token
   grafana:
     image: grafana/grafana
-    container_name: grafana-devnet
+    container_name: grafana
     restart: always
     depends_on:
       - influxdb
     environment:
       - GF_SECURITY_ADMIN_USER=${USERNAME}
       - GF_SECURITY_ADMIN_PASSWORD=${PASSWORD}
+      - GF_FEATURE_TOGGLES_ENABLE=publicDashboards
     links:
       - influxdb
     ports:
