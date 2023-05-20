@@ -92,10 +92,13 @@ Attaching to influxdb, telegraf, grafana
   You can log in using the `$USERNAME` and `$PASSWORD` that you define in the `.env` file (`admin:admin` in the example)
 
  ## What's next ?
- This project comes with prebuilt dashboards:
- - [Cisco Meraki](https://github.com/xaviervalette/cisco-devnet-mdt-tig/grafana/dashboards/meraki.json)
- - Cisco Catalyst 9800
  
+ You can start creating your own dashboards.
+ 
+ To help you at this stage, I've created ready to use dashboards:
+ - [Cisco Meraki - Classic](https://github.com/xaviervalette/cisco-devnet-mdt-tig/grafana/dashboards/meraki.json)
+ - Cisco Catalyst 9800 - Classic (coming)
+ - Cisco Catalyst 9300 - Sustanability (coming)
 
 ## Going beyond
  
