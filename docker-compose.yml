@@ -12,7 +12,7 @@ services:
     links:
       - influxdb
     ports:
-    - '8125:8125'
+    - '57000:57000'
 
   influxdb:
     image: influxdb
