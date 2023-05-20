@@ -82,4 +82,4 @@ Attaching to influxdb, telegraf, grafana
   | Example | `http://10.142.78.4:8086` | `http://10.142.78.4:3000` |
   | Output | <img width="300" alt="image" src="https://github.com/xaviervalette/cisco-devnet-mdt-tig/assets/28600326/6e200e1e-701a-43a2-97e8-d4c5eada2dfb"> | <img width="300" alt="image" src="https://github.com/xaviervalette/cisco-devnet-mdt-tig/assets/28600326/263a51de-911d-415b-9a9d-4176c86c6871"> |
 
-  You can log in using the `$USERNAME` and `$PASSWORD` that you define in the .env file (`admin:admin` in the example)
+  You can log in using the `$USERNAME` and `$PASSWORD` that you define in the `.env` file (`admin:admin` in the example)
