@@ -69,7 +69,8 @@ INFLUXDB_BUCKET=devnet
   </summary>
   
  ```console
- xvalette@raspberrypi4:~/cisco-devnet-mdt-tig$ docker-compose up
+xvalette@raspberrypi4:~$ cd cisco-devnet-mdt-tig/
+xvalette@raspberrypi4:~/cisco-devnet-mdt-tig$ docker-compose up
 Starting influxdb ... done
 Starting telegraf ... done
 Starting grafana  ... done
