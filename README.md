@@ -80,10 +80,19 @@ Attaching to influxdb, telegraf, grafana
 
  5. Check that you have access to the following pages:
   
+  
   | Service | InfluxDB GUI | Grafana GUI |
   | ------------- | ------------- | ------------- |
   | URL | `http://<your-device-IP>:8086` | `http://<your-device-IP>:3000` |
   | Example | `http://10.142.78.4:8086` | `http://10.142.78.4:3000` |
-  | Output | <img width="300" alt="image" src="https://github.com/xaviervalette/cisco-devnet-mdt-tig/assets/28600326/6e200e1e-701a-43a2-97e8-d4c5eada2dfb"> | <img width="300" alt="image" src="https://github.com/xaviervalette/cisco-devnet-mdt-tig/assets/28600326/263a51de-911d-415b-9a9d-4176c86c6871"> |
+  | Output | <img width="400" alt="image" src="https://github.com/xaviervalette/cisco-devnet-mdt-tig/assets/28600326/6e200e1e-701a-43a2-97e8-d4c5eada2dfb"> | <img width="400" alt="image" src="https://github.com/xaviervalette/cisco-devnet-mdt-tig/assets/28600326/263a51de-911d-415b-9a9d-4176c86c6871"> |
+  
 
   You can log in using the `$USERNAME` and `$PASSWORD` that you define in the `.env` file (`admin:admin` in the example)
+ 
+## Going beyond
+ <p align="center">
+<img width="550" alt="image" src="https://github.com/xaviervalette/cisco-devnet-mdt-tig/assets/28600326/6c70093c-d5d3-42a1-813a-a3b736da104b">
+ </p>
+ 
+ If you want to access to your application (InfluxDB, Grafana) from outside your network, you can deploy a [Duo Network Gateway](https://duo.com/docs/dng) (reverse proxy + SAML IDP) → Check my repository [Cisco Duo Network Gateway Raspberry PI](https://github.com/xaviervalette/cisco-duo-network-gateway-raspberry-pi) for more details.
