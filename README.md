@@ -99,7 +99,9 @@ Attaching to influxdb, telegraf, grafana
    <summary>
    <a href="https://github.com/xaviervalette/cisco-devnet-mdt-tig/blob/main/grafana/dashboards/cisco-meraki_global-stats.json">Cisco Meraki - Global stats</a>
   </summary>
-  <p align="center"><img width="800" alt="image" src="https://github.com/xaviervalette/cisco-devnet-mdt-tig/assets/28600326/e364c2e6-eafd-4bcf-ae99-d7cd379f9be9"></p>
+  <p align="center">
+<img width="800" alt="image" src="https://github.com/xaviervalette/cisco-devnet-mdt-tig/assets/28600326/45ae9888-d0e3-4475-8f5b-cd6253dd01b7">
+  </p>
  </details>
  
   <details>
