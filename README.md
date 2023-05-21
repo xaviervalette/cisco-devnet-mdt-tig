@@ -111,6 +111,10 @@ Attaching to influxdb, telegraf, grafana
   <p align="center"><img width="800" alt="image" src="https://github.com/xaviervalette/cisco-devnet-mdt-tig/assets/28600326/b58848d8-3846-4174-9b29-33f355c86322"></p>
    
   Example of configuration required on the C9800 to send the expected telemetry:
+ 
+  <p align="center">
+ <img width="400" alt="image" src="https://github.com/xaviervalette/cisco-devnet-mdt-tig/assets/28600326/03ff5717-f108-499b-ada3-b6a3c1d78ad6">
+   </p>
    
   ```config
 !
