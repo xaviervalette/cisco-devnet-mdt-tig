@@ -109,6 +109,40 @@ Attaching to influxdb, telegraf, grafana
    <a href="https://github.com/xaviervalette/cisco-devnet-mdt-tig/blob/main/grafana/dashboards/cisco-catalyst-9800_clients-stats.json">Cisco Catalyst 9800 - Clients stats</a>
   </summary>
   <p align="center"><img width="800" alt="image" src="https://github.com/xaviervalette/cisco-devnet-mdt-tig/assets/28600326/b58848d8-3846-4174-9b29-33f355c86322"></p>
+   
+  Example of configuration required on the C9800 to send the expected telemetry:
+   
+  ```config
+!
+! TRAFFIC STATS
+!
+telemetry ietf subscription 101
+ encoding encode-kvgpb
+ filter xpath /client-oper-data/traffic-stats/bytes-tx
+ source-address 192.168.1.98
+ stream yang-push
+ update-policy periodic 60000
+ receiver ip address 10.142.78.4 57000 protocol grpc-tcp
+!
+telemetry ietf subscription 102
+ encoding encode-kvgpb
+ filter xpath /client-oper-data/traffic-stats/bytes-rx
+ source-address 192.168.1.98
+ stream yang-push
+ update-policy periodic 60000
+ receiver ip address 10.142.78.4 57000 protocol grpc-tcp
+!
+! CLIENTS STATS
+!
+telemetry ietf subscription 110
+ encoding encode-kvgpb
+ filter xpath /wireless-mobility-oper:mobility-oper-data/wlan-client-limit
+ source-address 192.168.1.98
+ stream yang-push
+ update-policy on-change
+ receiver ip address 10.142.78.4 57000 protocol grpc-tcp
+```
+   
  </details>
  
    <details>
