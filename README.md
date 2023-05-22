@@ -48,6 +48,8 @@ influxdb_token: <your-token>
        <ins>Example</ins>
   </summary>
  
+<p align="center">  <img width="550" alt="image" src="https://github.com/xaviervalette/cisco-devnet-mdt-tig/assets/28600326/807f1293-2854-4dc3-b2c1-f9ba45c06a50"></p>
+
  ```yml
 #config.yml
 ---
@@ -113,7 +115,7 @@ Attaching to influxdb, telegraf, grafana
   | Output | <img width="400" alt="image" src="https://github.com/xaviervalette/cisco-devnet-mdt-tig/assets/28600326/6e200e1e-701a-43a2-97e8-d4c5eada2dfb"> | <img width="400" alt="image" src="https://github.com/xaviervalette/cisco-devnet-mdt-tig/assets/28600326/263a51de-911d-415b-9a9d-4176c86c6871"> |
   
 
-  You can log in using the `$USERNAME` and `$PASSWORD` that you define in the `.env` file (`admin:admin` in the example)
+  You can log in using the `username` and `password` that you define in the `config.yml` file (`admin:admin` in the example)
 
  ## What's next ?
  
@@ -124,26 +126,192 @@ Attaching to influxdb, telegraf, grafana
    <summary>
    <a href="https://github.com/xaviervalette/cisco-devnet-mdt-tig/blob/main/grafana/dashboards/cisco-meraki_global-stats.json">Cisco Meraki - Global stats</a>
   </summary>
-  
-   <h3 align="center">Dashboard</h3><hr>
+  <hr>
+   <h3 align="center">Dashboard</h3>
   
   <p align="center">
-<img width="800" alt="image" src="https://github.com/xaviervalette/cisco-devnet-mdt-tig/assets/28600326/45ae9888-d0e3-4475-8f5b-cd6253dd01b7">
-  </p>
+<img width="800" alt="image" src="https://github.com/xaviervalette/cisco-devnet-mdt-tig/assets/28600326/01329fae-b918-4a97-ab3b-eef7e2c9e7f4">  </p>
   
-   <h3 align="center">Data</h3><hr>
+   <h3 align="center">Data</h3>
+  
+  ```python
+import requests
+import json
+from datetime import datetime, timedelta
+import yaml
+import time
+
+def get_previous_hour_timestamp():
+    # get the current time
+    now = datetime.now()
+    # subtract an hour from the current time
+    previous_hour = now - timedelta(hours=1)
+    previous_hour = previous_hour.replace(minute=0,second=0, microsecond=0)
+    return(int(previous_hour.timestamp()))
+
+
+def write_data_to_influxdb(host, org, bucket, precision, auth_token, payload):
+    # Create the URL for writing data to the InfluxDB database
+    url = f"http://{host}:8086/api/v2/write?org={org}&bucket={bucket}&precision={precision}"
+
+    # Set the HTTP headers for the request
+    headers = {
+        "Authorization": f"Token {auth_token}",
+        "Content-Type": "text/plain; charset=utf-8",
+        "Accept": "application/json"
+    }
+
+    # Make the API request to write the data to the InfluxDB database
+    response = requests.post(url, headers=headers, data=payload)
+
+    # Return the status code of the API response
+    return response.status_code
+
+
+def get_poe_consumption():
+    # Open the config.yml file and load its contents into the 'config' variable
+    with open('config.yml', 'r') as file:
+        config = yaml.safe_load(file)
+
+        # Loop through each network defined in the config file
+        for network in config["meraki"]["networks"]:
+
+            # Loop through each network defined in the config file
+            for switch in network["devices"]["switches"]:
+                
+                # Get the current timestamp
+                #current_timestamp = int(time.time())
+                timestamp = get_previous_hour_timestamp()
+
+                # Create the URL for retrieving all VLANs in the network
+                url = f"https://api.meraki.com/api/v1/devices/{switch}/switch/ports/statuses?timespan=3600"
+
+                # Set the HTTP headers for the request
+                headers = {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json",
+                    "X-Cisco-Meraki-API-Key": config["meraki"]["api_key"]
+                }
+
+                # Empty payload
+                payload = {}
+
+                # Make the API request using the requests library
+                response = requests.get(url, headers=headers, data=json.dumps(payload))
+
+                # Print the status code of the response
+                print("\nRequest status code : " + str(response.status_code) + "\n")
+
+                # Parse the response as JSON
+                responseJson = response.json()
+
+                total_switch_poe = 0
+
+                # Iterate through each port in the response
+                for port in responseJson:
+                    # Skip over ports 9 and 10
+                    if port["portId"] not in ["9", "10"]:
+                        # Calculate the POE usage for the current port
+                        poe_usage = port["powerUsageInWh"]
+                        total_switch_poe = total_switch_poe + port["powerUsageInWh"]
+                
+                payload = f'meraki,device={switch} poeUsage={total_switch_poe} {timestamp}'
+
+                # Print the payload string
+                print(payload)
+
+                # Write the payload data to the InfluxDB database
+                status_code = write_data_to_influxdb(
+                    host=config["influxdb"]["host"],
+                    org=config["influxdb"]["org"],
+                    bucket=config["influxdb"]["bucket"],
+                    precision="s",
+                    auth_token=config["influxdb"]["api_key"],
+                    payload=payload
+                )
+
+                # Print the status code of the write_data() API response
+                print(status_code)
+
+
+
+def get_clients_usage():
+    # Open the config.yml file and load its contents into the 'config' variable
+    with open('config.yml', 'r') as file:
+        config = yaml.safe_load(file)
+
+        # Loop through each network defined in the config file
+        for network in config["meraki"]["networks"]:
+
+            # Get the current timestamp
+            current_timestamp = int(time.time())
+
+            # Create the URL for retrieving all VLANs in the network
+            url = f"https://api.meraki.com/api/v1/networks/{network['network_id']}/clients?timespan=600"
+            print(url)
+
+            # Set the HTTP headers for the request
+            headers = {
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+                "X-Cisco-Meraki-API-Key": config["meraki"]["api_key"]
+            }
+
+            # Empty payload
+            payload = {}
+
+            # Make the API request using the requests library
+            response = requests.get(url, headers=headers, data=json.dumps(payload))
+
+            # Print the status code of the response
+            print("\nRequest status code : " + str(response.status_code) + "\n")
+
+            # Parse the response as JSON
+            responseJson = response.json()
+            print(responseJson)
+
+            for client in responseJson:
+                # Iterate through each port in the response
+                # Format the payload string with the POE usage data
+                payload = f'meraki,client={client["mac"]} downloadKbytes={client["usage"]["recv"]} {current_timestamp}'
+
+                # Write the payload data to the InfluxDB database
+                status_code = write_data_to_influxdb(
+                    host=config["influxdb"]["host"],
+                    org=config["influxdb"]["org"],
+                    bucket=config["influxdb"]["bucket"],
+                    precision="s",
+                    auth_token=config["influxdb"]["api_key"],
+                    payload=payload
+                )
+
+                payload = f'meraki,client={client["mac"]} uploadKbytes={client["usage"]["sent"]} {current_timestamp}'
+                
+                # Write the payload data to the InfluxDB database
+                status_code = write_data_to_influxdb(
+                    host=config["influxdb"]["host"],
+                    org=config["influxdb"]["org"],
+                    bucket=config["influxdb"]["bucket"],
+                    precision="s",
+                    auth_token=config["influxdb"]["api_key"],
+                    payload=payload
+                )
+
+            # Print the status code of the write_data() API response
+            print(status_code)
+ ``` 
  <hr></details>
  
   <details>
    <summary>
    <a href="https://github.com/xaviervalette/cisco-devnet-mdt-tig/blob/main/grafana/dashboards/cisco-catalyst-9800_clients-stats.json">Cisco Catalyst 9800 - Clients stats</a>
   </summary>
-   
-   <h3 align="center">Dashboard</h3><hr>
+   <hr>
+   <h3 align="center">Dashboard</h3>
   <p align="center">
 <img width="800" alt="image" src="https://github.com/xaviervalette/cisco-devnet-mdt-tig/assets/28600326/d0c90212-dda5-46a0-a713-3d6eaeb196bf">   </p>
    
-   <h3 align="center">Data</h3><hr>
+   <h3 align="center">Data</h3>
 
   Example of configuration required on the C9800 to send the expected telemetry:
  
@@ -189,7 +357,7 @@ telemetry ietf subscription 110
     Cisco Catalyst 9300 - Sustanability
   </summary>
   Coming...<hr>
- </details>
+ <hr></details>
 
 
 ## Going beyond
