@@ -1,5 +1,5 @@
 # Cisco DevNet Model Driven Telemetry with TIG
-[![Telegraf](https://img.shields.io/badge/Telegraf-1.26-red.svg)](https://hub.docker.com/_/influxdb)
+[![Telegraf](https://img.shields.io/badge/Telegraf-1.26-red.svg)](https://hub.docker.com/_/telegraf)
 [![Influx DB](https://img.shields.io/badge/InfluxDB-2.7-blue.svg)](https://hub.docker.com/_/influxdb)
 [![Grafana](https://img.shields.io/badge/Grafana-9.4.1-yellow.svg)](https://hub.docker.com/r/grafana/grafana)
 
