@@ -22,24 +22,26 @@ git clone https://github.com/xaviervalette/cisco-devnet-mdt-tig
  2. Create the .env file as follow:
 ```diff
 └── cisco-devnet-mdt-tig/
-+   ├── .env
-    ├── docker-compose.yml
-    ├── telegraf/
++   ├── config.yml
+    ├── src/
     │   └── ...
-    ├── influxdb/
-    │   └── ...
-    └── grafana/
+    └── template/
         └── ...
-
 ```
  
 3. In the `.env` file, add the following variables:
  
-```env 
-USERNAME=<your-username>
-PASSWORD=<your-password>
-INFLUXDB_ORG=<your-influxdb-org> 
-INFLUXDB_BUCKET=<your-influxdb-bucket>
+```yml
+#config.yml
+---
+host: <your_host>
+username: <your-username>
+password: <your-password>
+influxdb_org: <your-influxdb-org> 
+influxdb_bucket: <your-influxdb-bucket>
+influxdb_token: <your-token>
+...
+
 ```
  
  <details>
@@ -47,16 +49,39 @@ INFLUXDB_BUCKET=<your-influxdb-bucket>
        <ins>Example</ins>
   </summary>
  
- ```env
-USERNAME=admin
-PASSWORD=admin
-INFLUXDB_ORG=valettefamily.com
-INFLUXDB_BUCKET=devnet
+ ```yml
+#config.yml
+---
+host: 10.142.78.4
+username: admin
+password: admin
+influxdb_org: valettefamily.com
+influxdb_bucket: devnet
+influxdb_token: test-token
+...
  ```
  </details>
   
-⚠️ In the configurations files, I've set `INFLUXDB_ORG` to `valettefamily.com`and `ÌNFLUXDB_BUCKET` to `devnet`. If you decide to change those values, you will need to change them in the configuration files of telegraf, grafana and directly in the docker-compose.yml.
+⚠️ After creating the `config.yml` file, you will need to generate the `docker-compose.yml` file and the required configuration files. To make it smooth, I've created template with `Jinja2`, so you will just have to run the following command:
+```console
+python3 src/generate-conf.py
+```
 
+The following files should be created:
+```diff
+└── cisco-devnet-mdt-tig/
+    ├── config.yml
+    ├── src/
+    │   └── ...
+    └── template/
+    │   └── ...
++   ├── docker-compose.yml
++   ├── telegraf/
++   │   └── ...
++   └── grafana/
++       └── ...
+
+```
   
 4. Go to `cisco-devnet-mdt-tig`, and start the TIG stack:
  ```console
