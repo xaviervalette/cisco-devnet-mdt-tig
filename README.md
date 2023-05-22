@@ -29,7 +29,7 @@ git clone https://github.com/xaviervalette/cisco-devnet-mdt-tig
         └── ...
 ```
  
-3. In the `.env` file, add the following variables:
+3. In the `config.yml` file, add the following variables:
  
 ```yml
 #config.yml
