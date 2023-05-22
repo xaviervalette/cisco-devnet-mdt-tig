@@ -115,7 +115,8 @@ Attaching to influxdb, telegraf, grafana
   </summary>
    
    <h3 align="center">Dashboard</h3><hr>
-  <p align="center"><img width="800" alt="image" src="https://github.com/xaviervalette/cisco-devnet-mdt-tig/assets/28600326/b58848d8-3846-4174-9b29-33f355c86322"></p>
+  <p align="center">
+<img width="800" alt="image" src="https://github.com/xaviervalette/cisco-devnet-mdt-tig/assets/28600326/d0c90212-dda5-46a0-a713-3d6eaeb196bf">   </p>
    
    <h3 align="center">Data</h3><hr>
 
