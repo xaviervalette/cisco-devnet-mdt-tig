@@ -95,7 +95,7 @@ Attaching to influxdb, telegraf, grafana
  You can start creating your own dashboards.
  
  To help you at this stage, I've created ready to use dashboards: 
- <details open>
+ <details>
    <summary>
    <a href="https://github.com/xaviervalette/cisco-devnet-mdt-tig/blob/main/grafana/dashboards/cisco-meraki_global-stats.json">Cisco Meraki - Global stats</a>
   </summary>
@@ -109,7 +109,7 @@ Attaching to influxdb, telegraf, grafana
    <h3 align="center">Data</h3><hr>
  <hr></details>
  
-  <details open>
+  <details>
    <summary>
    <a href="https://github.com/xaviervalette/cisco-devnet-mdt-tig/blob/main/grafana/dashboards/cisco-catalyst-9800_clients-stats.json">Cisco Catalyst 9800 - Clients stats</a>
   </summary>
