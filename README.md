@@ -99,17 +99,26 @@ Attaching to influxdb, telegraf, grafana
    <summary>
    <a href="https://github.com/xaviervalette/cisco-devnet-mdt-tig/blob/main/grafana/dashboards/cisco-meraki_global-stats.json">Cisco Meraki - Global stats</a>
   </summary>
+  
+   <h3 align="center">Dashboard</h3><hr>
+  
   <p align="center">
 <img width="800" alt="image" src="https://github.com/xaviervalette/cisco-devnet-mdt-tig/assets/28600326/45ae9888-d0e3-4475-8f5b-cd6253dd01b7">
   </p>
- </details>
+  
+   <h3 align="center">Data</h3><hr>
+ <hr></details>
  
   <details>
    <summary>
    <a href="https://github.com/xaviervalette/cisco-devnet-mdt-tig/blob/main/grafana/dashboards/cisco-catalyst-9800_clients-stats.json">Cisco Catalyst 9800 - Clients stats</a>
   </summary>
+   
+   <h3 align="center">Dashboard</h3><hr>
   <p align="center"><img width="800" alt="image" src="https://github.com/xaviervalette/cisco-devnet-mdt-tig/assets/28600326/b58848d8-3846-4174-9b29-33f355c86322"></p>
    
+   <h3 align="center">Data</h3><hr>
+
   Example of configuration required on the C9800 to send the expected telemetry:
  
   <p align="center">
@@ -146,14 +155,14 @@ telemetry ietf subscription 110
  update-policy on-change
  receiver ip address 10.142.78.4 57000 protocol grpc-tcp
 ```
-   
+   <hr>
  </details>
  
    <details>
    <summary>
     Cisco Catalyst 9300 - Sustanability
   </summary>
-  Coming...
+  Coming...<hr>
  </details>
 
 
