@@ -4,7 +4,7 @@
 [![Grafana](https://img.shields.io/badge/Grafana-9.4.1-yellow.svg)](https://hub.docker.com/r/grafana/grafana)
 
 ## What is it ?
-Telegraf, InfluxDB and Grafana (TIG) setup via Docker to collect Model Driven Telemetry (MDT):
+Automated Telegraf, InfluxDB and Grafana (TIG) setup via Docker and Jinja template to collect Model Driven Telemetry (MDT):
 <p align="center">
 <img width="550" alt="image" src="https://github.com/xaviervalette/cisco-devnet-mdt-tig/assets/28600326/5182eab6-14ec-466b-bade-2c7ebe69fc7e">
 <p>
