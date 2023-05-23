@@ -2,3 +2,4 @@ config.yml
 grafana/datasources/influxdb.yml
 telegraf/telegraf.conf
 docker-compose.yml
+venv
