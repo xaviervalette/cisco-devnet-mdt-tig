@@ -55,7 +55,7 @@ influxdb_token: <your-token>
 ---
 host: 10.142.78.4
 username: admin
-password: admin
+password: mysuperstrongpassword
 influxdb_org: valettefamily.com
 influxdb_bucket: devnet
 influxdb_token: test-token
