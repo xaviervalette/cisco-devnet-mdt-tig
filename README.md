@@ -46,7 +46,7 @@ influxdb_token: <your-token>
  <details>
    <summary> 
        <ins>Example</ins>
-  </summary>
+  </summary><hr>
  
 <p align="center">  <img width="550" alt="image" src="https://github.com/xaviervalette/cisco-devnet-mdt-tig/assets/28600326/807f1293-2854-4dc3-b2c1-f9ba45c06a50"></p>
 
@@ -61,7 +61,7 @@ influxdb_bucket: devnet
 influxdb_token: test-token
 ...
  ```
- </details>
+ <hr></details>
   
 ⚠️ After creating the `config.yml` file, you will need to generate the `docker-compose.yml` file and the required configuration files. To make it smooth, I've created template with `Jinja2`, so you will just have to run the following command:
 ```console
